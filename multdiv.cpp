@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool division(){
+bool div(){
     unsigned i;
     int answer;
     int num1 = (rand() % 41) - 20;
@@ -23,7 +23,7 @@ bool division(){
     return false;
 }
 
-bool multiplication(){
+bool mult(){
     int answer;
     int num1 = (rand() % 41) - 20;
     int num2 = (rand() % 41) - 20;
