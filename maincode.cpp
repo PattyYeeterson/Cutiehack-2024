@@ -103,8 +103,6 @@ bool add(){
 }
 
 bool sub(){
-   int num1;
-   int num2;
    int answ;
    int rightNum = 0;
    int wrongNum = 0;
@@ -137,11 +135,25 @@ int main() {
    string userName;
    string petName;
    string bossName;
+   char playGame;
    char captPet;
    const int delay = 60; 
    int option;
    
+   //asking user if they want to play
+   string message0 = "Do you want to play (Y/N): ";
+   displayTextLetterByLetter(message0, delay);
+   cin >> playGame;
+   playGame = toupper(playGame);
+   while ((playGame != 'Y') && (playGame != 'N')) {
+      string message0 = "Enter Y or N: ";
+      displayTextLetterByLetter(message0, delay);
+      cin >> playGame;
+      playGame = toupper(playGame);
+   }
    
+   //playing the game if user put Y in previous statement
+   if (playGame == 'Y') {
    //making sure that the username does not exceed limit (10)
    string message1 = "Enter your username (no spaces): ";
    displayTextLetterByLetter(message1, delay);
@@ -165,8 +177,8 @@ int main() {
    //Block of code for encountering the wild pet, random number to catch pet, if caught ask user to name
    srand(time(0));
    petRate = (rand() % 10) + 1;
-   //while (petRate != 5) {
-      //petRate = (rand() % 10) + 1;
+   while (petRate != 5) {
+      petRate = (rand() % 10) + 1;
       if (petRate == 5) {
          string message5 = "You've captured the pet! Would you like to name it? (Y/N): ";
          displayTextLetterByLetter(message5, delay);
@@ -191,7 +203,7 @@ int main() {
             displayTextLetterByLetter(message8, delay);
          }
       }
-   //}
+   }
    
    //the choice of class system, corresponds to which function is called
    cout << "What math questions would you like?" << endl << "Enter 1 for addition\nEnter 2 for subtraction\nEnter 3 for multiplication\nEnter 4 for division\n" << endl;
@@ -217,10 +229,12 @@ int main() {
    }
    
    if (result == true) {
-      cout << "You beat " << bossName << endl;
+      cout << endl << "You beat " << bossName << endl;
    }
    else{
-      cout << "You Lose" << endl;
+      cout << endl<< "You Lose" << endl;
+   }
+   
    }
    
    return 0;
