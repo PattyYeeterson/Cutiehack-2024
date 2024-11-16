@@ -36,13 +36,29 @@ bool multiplication(){
     cout << "False" << endl;
     return false;
 }
-int main(){
-    srand(time(0));
-    if (division()){
-        cout << "Division done" << endl;
-    }
-    if (multiplication()){
-        cout << "Multiplication done" << endl;
-    }
-    return 0;
+
+bool add(){
+   int num1 = rand() % 41 - 20;
+   int num2 = rand() % 41 - 20;
+   int answ;
+   bool result = false;
+   cout << num1 << " + " << num2 << " = ?" << endl;
+   cin >> answ;
+   if(answ == num1 + num2){
+      result = true;
+   }
+   return result;
+}
+
+bool sub(){
+   int num1 = rand() % 41 - 20;
+   int num2 = rand() % 41 - 20;
+   int answ;
+   bool result = false;
+   cout << num1 << " - " << num2 << " = ?" << endl;
+   cin >> answ;
+   if(answ == num1 - num2){
+      result = true;
+   }
+   return result;
 }
