@@ -10,8 +10,8 @@ bool div(){
     int num1 = (rand() % 41) - 20;
     int num2 = (rand() % 41) - 20;
     while (num1 % num2 != 0){
-        num1 = (rand() % 41) - 20;
-        num2 = (rand() % 41) - 20;
+        num1 = (rand() % 25) - 12;
+        num2 = (rand() % 25) - 12;
     }
     cout << num1 << " / " << num2 << " = ?" << endl;
     cin >> answer;
@@ -25,8 +25,8 @@ bool div(){
 
 bool mult(){
     int answer;
-    int num1 = (rand() % 41) - 20;
-    int num2 = (rand() % 41) - 20;
+    int num1 = (rand() % 25) - 12;
+    int num2 = (rand() % 25) - 12;
     cout << num1 << " * " << num2 << " = ?" << endl;
     cin >> answer;
     if (answer == num1 * num2){
