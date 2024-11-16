@@ -1,0 +1,91 @@
+bool divi(){
+   int answer;
+   int rightNum = 0;
+   int wrongNum = 0;
+   
+   for (int a = 0; a < range; ++a) {
+      int num1 = (rand() % 25) - 12;
+      int num2 = (rand() % 25) - 12;
+      while (num1 % num2 != 0){
+         num1 = (rand() % 25) - 12;
+         num2 = (rand() % 25) - 12;
+      }
+      cout << num1 << " / " << num2 << " = ?" << endl;
+      cin >> answer;
+      if (answer == num1 / num2){
+         cout << "Correct" << endl;
+         return true;
+      }
+      else {
+         ++wrongNum;
+         return false;
+      }
+   }
+}
+
+bool mult(){
+   int answer;
+   int rightNum = 0;
+   int wrongNum = 0;
+    
+   for (int b = 0; b < range; ++b) {
+      int num1 = (rand() % 25) - 12;
+      int num2 = (rand() % 25) - 12;
+      cout << num1 << " * " << num2 << " = ?" << endl;
+      cin >> answer;
+      if (answer == num1 * num2){
+         return true;
+      }
+      else {
+         ++wrongNum;
+         return false;
+      }
+    }
+}
+
+bool add(){
+   int num1; 
+   int num2;
+   int answ;
+   int rightNum = 0;
+   int wrongNum = 0;
+   bool result = false;
+   
+   for (int c = 0; c < range; ++c) {
+      num1 = rand() %  41 - 20;
+      num2 = rand() % 41 - 20;
+      cout << num1 << " + " << num2 << " = ?" << endl;
+      cin >> answ;
+      if(answ == (num1 + num2)){
+         result = true;
+      }
+      else {
+         ++wrongNum;
+      }
+   }
+   return result;
+}
+
+bool sub(){
+   int num1;
+   int num2;
+   int answ;
+   bool result = false;
+   int rightNum = 0;
+   int wrongNum = 0;
+   
+   for (int d = 0; d < range; ++d) {
+      int num1 = rand() % 41 - 20;
+      int num2 = rand() % 41 - 20;
+      cout << num1 << " - " << num2 << " = ?" << endl;
+      cin >> answ;
+      if(answ == num1 - num2){
+         ++rightNum;
+         result = true;
+      }
+      else {
+         ++wrongNum;
+      }
+   }
+   return result;
+}
