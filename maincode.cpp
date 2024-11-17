@@ -24,7 +24,7 @@ bool divi(){
    int answer;
    int rightNum = 0;
    int wrongNum = 0;
-   bool result = false;
+   result = false;
    
    for (int a = 0; a < range; ++a) {
       int num1 = (rand() % 25) - 12;
@@ -54,6 +54,7 @@ bool mult(){
    int answer;
    int rightNum = 0;
    int wrongNum = 0;
+   result = false;
     
    for (int b = 0; b < range; ++b) {
       int num1 = (rand() % 25) - 12;
@@ -69,7 +70,7 @@ bool mult(){
          ++wrongNum;
       }
       if (rightNum > wrongNum) {
-         result = true;
+      result = true;
       }
    }
    return result;
@@ -81,7 +82,7 @@ bool add(){
    int answ;
    int rightNum = 0;
    int wrongNum = 0;
-  
+   result = false;
    for (int c = 0; c < range; ++c) {
       num1 = rand() %  41 - 20;
       num2 = rand() % 41 - 20;
@@ -106,6 +107,7 @@ bool sub(){
    int answ;
    int rightNum = 0;
    int wrongNum = 0;
+   result = false;
    
    for (int d = 0; d < range; ++d) {
       int num1 = rand() % 41 - 20;
@@ -139,6 +141,7 @@ int main() {
    char captPet;
    const int delay = 60; 
    int option;
+   char seeAn;
    
    //asking user if they want to play
    string message0 = "Do you want to play (Y/N): ";
@@ -176,9 +179,18 @@ int main() {
    
    //Block of code for encountering the wild pet, random number to catch pet, if caught ask user to name
    srand(time(0));
+   string message9 = userName + " has encountered a wild animal, would you like to try to befriend it (Y/N): ";
+   displayTextLetterByLetter(message9, delay);
+   cin >> seeAn;
+   seeAn = toupper(seeAn);
+   while ((seeAn != 'Y') && (seeAn != 'N')) {
+      string message11 = "Enter Y or N: ";
+      displayTextLetterByLetter(message11, delay);
+      cin >> seeAn;
+      seeAn = toupper(seeAn);
+   }
    petRate = (rand() % 10) + 1;
-   while (petRate != 5) {
-      petRate = (rand() % 10) + 1;
+   if (seeAn == 'Y') {
       if (petRate == 5) {
          string message5 = "You've captured the pet! Would you like to name it? (Y/N): ";
          displayTextLetterByLetter(message5, delay);
@@ -190,7 +202,6 @@ int main() {
             displayTextLetterByLetter(message6, delay);
             cin >> captPet;
             captPet = toupper(captPet);
-   
          }
          if (captPet == 'Y') {
             string message7 = "What do you want to name your pet (no spaces): ";
@@ -199,14 +210,23 @@ int main() {
             cout << endl;
          }
          else {
-            string message8 = "Ok... the wild pet is sad now :(";
+            string message8 = "Ok... the pet will be nameless :(";
             displayTextLetterByLetter(message8, delay);
          }
       }
+      else {
+         string message12 = "Sorry the animal ran away... :(";
+         displayTextLetterByLetter(message12, delay);
+      }
    }
+   else {
+      string message13 = "Ok... the animal will be all alone... ;(";
+      displayTextLetterByLetter(message13, delay);
+   }
+
    
    //the choice of class system, corresponds to which function is called
-   cout << "What math questions would you like?" << endl << "Enter 1 for addition\nEnter 2 for subtraction\nEnter 3 for multiplication\nEnter 4 for division\n" << endl;
+   cout << endl << "What math questions would you like?" << endl << "Enter 1 for addition\nEnter 2 for subtraction\nEnter 3 for multiplication\nEnter 4 for division\n" << endl;
 
    cin >> option;
 
