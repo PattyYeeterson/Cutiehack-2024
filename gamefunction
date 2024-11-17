@@ -1,0 +1,19 @@
+void mathGame(int option){
+   while(!(option > 0 && option < 5)){
+   cout << "Please enter one of the numbers above." << endl;
+   cin >> option;
+}
+   
+if(option == 1){
+   add();
+}
+else if(option == 2){
+   sub();
+}
+else if(option == 3){
+   mult();
+}
+else{
+   divi();
+}
+}
