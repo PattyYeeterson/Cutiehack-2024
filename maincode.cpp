@@ -129,6 +129,25 @@ bool sub(){
    return result;
 }
 
+void mathGame(int option){
+   while(!(option > 0 && option < 5)){
+      cout << "Please enter one of the numbers above." << endl;
+      cin >> option;
+   }
+   
+   if(option == 1){
+      add();
+   }
+   else if(option == 2){
+      sub();
+   }
+   else if(option == 3){
+      mult();
+   }
+   else{
+      divi();
+   }
+}
 
 int main() {
    
@@ -227,26 +246,8 @@ int main() {
    
    //the choice of class system, corresponds to which function is called
    cout << endl << "What math questions would you like?" << endl << "Enter 1 for addition\nEnter 2 for subtraction\nEnter 3 for multiplication\nEnter 4 for division\n" << endl;
-
    cin >> option;
-
-   while(!(option > 0 && option < 5)) {
-      cout << "Please enter one of the numbers above." << endl;
-      cin >> option;
-   }
-   
-   if(option == 1) {
-      add();
-   }
-   else if(option == 2) {
-      sub();
-   }
-   else if(option == 3) {
-      mult();
-   }
-   else {
-      divi();
-   }
+   mathGame(option);
    
    if (result == true) {
       cout << endl << "You beat " << bossName << endl;
@@ -254,7 +255,6 @@ int main() {
    else{
       cout << endl<< "You Lose" << endl;
    }
-   
    }
    
    return 0;
